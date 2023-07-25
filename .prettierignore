@@ -1,0 +1,16 @@
+node_modules
+cache
+package-lock.json
+yarn.lock
+.vscode/*
+dist
+dest
+lib
+build
+out
+.github
+reports
+**/coverage/*
+.yarn
+.next
+public

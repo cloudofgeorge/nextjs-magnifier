@@ -1,3 +1,59 @@
 {
-  "extends": "next/core-web-vitals"
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+        "eslint:recommended",
+        "next/core-web-vitals",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "plugin:storybook/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react/recommended",
+        "plugin:storybook/recommended"
+    ],
+    "settings": {
+        "pragma": "React",
+        "version": "detect"
+    },
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {},
+            {
+                "usePrettierrc": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "react/no-unknown-property": [
+            2,
+            {
+                "ignore": ["jsx", "global"]
+            }
+        ],
+        "@typescript-eslint/no-unnecessary-type-constraint": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
+    },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off"
+            }
+        },
+        {
+            "files": ["*.stories.tsx"],
+            "rules": {
+                "react/display-name": "off",
+                "react-hooks/rules-of-hooks": "off"
+            }
+        },
+        {
+            "files": ["**/context/*.tsx"],
+            "rules": {
+                "@typescript-eslint/no-empty-function": "off"
+            }
+        }
+    ]
 }
