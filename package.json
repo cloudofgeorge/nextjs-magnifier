@@ -1,18 +1,74 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "eslint": "8.45.0",
-    "eslint-config-next": "13.4.10",
-    "next": "13.4.10",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  }
+    "name": "nextjs-magnifier",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "yarn typecheck && yarn lint:prettier && yarn lint:stylelint && yarn lint:eslint",
+        "lint:fix": "yarn lint:prettier:fix && yarn lint:stylelint:fix && yarn lint:eslint:fix",
+        "lint:next": "next lint",
+        "lint:next:fix": "next lint --fix",
+        "lint:eslint": "eslint ./ --ext .ts,.tsx",
+        "lint:eslint:fix": "yarn lint:eslint --fix",
+        "lint:eslint:report": "yarn lint:eslint --output-file reports/eslint-report.json --format json",
+        "lint:prettier": "prettier --list-different 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
+        "lint:prettier:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
+        "lint:stylelint": "stylelint \"src/**/*.{scss,css,pcss,tsx,ts,js,jsx}\"",
+        "lint:stylelint:fix": "yarn lint:stylelint --fix",
+        "lint:stylelint:report": "yarn lint:stylelint --output-file reports/stylelint-report.txt",
+        "typecheck": "tsc --noEmit",
+        "prepare": "husky install",
+        "bundle-analyzer:build": "ANALYZE_BUILD=true yarn build",
+        "bundle-analyzer:open": "ANALYZE_BUILD=true ANALYZE_OPEN=true yarn build",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn lint:fix",
+            "pre-push": "npx --no-install lint-staged"
+        }
+    },
+    "dependencies": {
+        "@next/bundle-analyzer": "^13.4.10",
+        "clsx": "^2.0.0",
+        "next": "13.4.10",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^7.1.1",
+        "@storybook/addon-interactions": "^7.1.1",
+        "@storybook/addon-links": "^7.1.1",
+        "@storybook/addon-onboarding": "^1.0.8",
+        "@storybook/blocks": "^7.1.1",
+        "@storybook/nextjs": "^7.1.1",
+        "@storybook/react": "^7.1.1",
+        "@storybook/testing-library": "^0.2.0",
+        "@types/node": "20.4.2",
+        "@types/react": "18.2.15",
+        "@types/react-dom": "18.2.7",
+        "@typescript-eslint/eslint-plugin": "^6.2.0",
+        "autoprefixer": "10.4.14",
+        "eslint": "8.45.0",
+        "eslint-config-next": "13.4.10",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-storybook": "^0.6.12",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.3",
+        "postcss": "8.4.26",
+        "prettier": "^3.0.0",
+        "prettier-eslint": "^15.0.1",
+        "sass": "^1.63.6",
+        "storybook": "^7.1.1",
+        "stylelint": "^15.10.2",
+        "stylelint-config-recommended-scss": "^12.0.0",
+        "stylelint-scss": "^5.0.1",
+        "tailwindcss": "3.3.3",
+        "typescript": "5.1.6"
+    }
 }

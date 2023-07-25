@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        // Layout
+        --header-height: 240px;
+        --header-height-mobile: 60px;
+    }
+}

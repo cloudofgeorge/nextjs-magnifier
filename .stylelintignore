@@ -1,0 +1,13 @@
+dist
+build
+out
+lib
+node_modules
+storybook-static
+coverage
+reports
+*.ts
+*.tsx
+examples
+.next
+public
