@@ -23,9 +23,11 @@ export const ListItem: React.FC<ListItemProps> = ({ src, alt = 'List item', isAc
     return (
         <div className={classNames} role="button" {...props}>
             <Image
-                className="block w-full h-full object-cover transition-transform group-hover:scale-110 duration-200 group-[.is-active]:hover:scale-100"
+                className="block w-full h-full object-cover transition-transform group-hover:scale-110 duration-200 group-[.is-active]:hover:scale-100 aspect-square"
                 src={src}
                 sizes="100vw"
+                width={0}
+                height={0}
                 alt={alt}
                 quality={75}
                 fill
