@@ -117,6 +117,7 @@ export const View: React.FC<ViewProps> = ({ data }) => {
                                 alt="image"
                                 width={600}
                                 height={600}
+                                sizes="100vw"
                                 priority
                                 placeholder="blur"
                                 blurDataURL={data}
