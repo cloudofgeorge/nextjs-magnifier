@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
 
@@ -22,7 +22,7 @@ export const View: React.FC<ViewProps> = ({ data }) => {
         setIsActive(false);
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         /**
          * Take the image from Next Image component and set the background image of the magnifier glass
          * That way we can use the same image and don't have to load it again
